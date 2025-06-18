@@ -1,5 +1,5 @@
 package Day2_controlFlows;
-
+import java.util.Scanner;
 public class SpringSeason {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
