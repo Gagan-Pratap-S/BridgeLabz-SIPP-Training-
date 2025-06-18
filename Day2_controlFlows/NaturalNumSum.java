@@ -1,12 +1,11 @@
 package Day2_controlFlows;
 import java.util.Scanner;
-
-public class NaturalNumberSum {
+public class NaturalNumSum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Take user input
-        System.out.print("Enter a natural number: ");
+        System.out.print("Enter a natural number (positive integer): ");
         int n = scanner.nextInt();
 
         // Check if it's a natural number
@@ -16,7 +15,7 @@ public class NaturalNumberSum {
             // Compute using formula
             int formulaSum = n * (n + 1) / 2;
 
-            //  Compute using for loop
+            // Compute using for loop
             int loopSum = 0;
             for (int i = 1; i <= n; i++) {
                 loopSum += i;
@@ -26,9 +25,9 @@ public class NaturalNumberSum {
             System.out.println("Sum using for loop: " + loopSum);
             System.out.println("Sum using formula (n*(n+1)/2): " + formulaSum);
 
-            //  Comparison result
+            // Comparison result
             if (loopSum == formulaSum) {
-                System.out.println(" Both computations are correct and equal.");
+                System.out.println("Both computations are correct and equal.");
             } else {
                 System.out.println("There is a mismatch between the results.");
             }
