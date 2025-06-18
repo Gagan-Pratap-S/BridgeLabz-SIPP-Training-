@@ -1,6 +1,6 @@
 package Day3_Arrays;
 import java.util.Scanner;
-public class .MeanHeight {
+public class MeanHeight {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
