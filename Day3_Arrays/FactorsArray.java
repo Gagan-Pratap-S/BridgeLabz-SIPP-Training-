@@ -12,7 +12,7 @@ public class FactorsArray {
             return;
         }
 
-        int maxFactor = 10;
+       int maxFactor = 10;
         int[] factors = new int[maxFactor];
         int index = 0;
 
