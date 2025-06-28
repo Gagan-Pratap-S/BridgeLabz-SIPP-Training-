@@ -9,7 +9,7 @@ public class CoffeeCounterChronicles {
 
         Scanner scanner = new Scanner(System.in);
         //System.out.println("Enter customer number: ");
-        customer = scanner.nextInt();
+        //customer = scanner.nextInt();
         System.out.println("enter coffee type : ");
         String coffeeType = scanner.nextLine();   
 
