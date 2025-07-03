@@ -12,9 +12,9 @@ public class VotingBoothManager {
         while (voters != 0) {
             
             System.out.println("Enter the age of the voter:");
-            int age = scanner.nextInt();
+            int age = scanner.nextInt(); 
 
-            if (age < 18) {
+            if (age < 18) {      // verify the age
             System.out.println("You are not eligible to vote.");
             } else {
             System.out.println("Choose your candidate: 1 or 2");
