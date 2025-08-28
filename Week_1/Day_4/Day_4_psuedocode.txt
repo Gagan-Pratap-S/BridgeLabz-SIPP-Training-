@@ -1,0 +1,118 @@
+Q1. Banking Portal.
+
+CLASS Account
+    PROPERTIES
+        accountNumber
+        balance
+
+    METHODS
+        deposit(amount)
+            balance += amount
+
+        withdraw(amount)
+            // To be overridden
+
+CLASS Savings EXTENDS Account
+    PROPERTIES
+        withdrawalLimit
+
+    METHODS
+        withdraw(amount)
+            IF amount > balance OR amount > withdrawalLimit THEN
+                PRINT "Withdrawal Denied"
+            ELSE
+                balance -= amount
+
+CLASS Current EXTENDS Account
+    METHODS
+        withdraw(amount)
+            IF amount > balance THEN
+                PRINT "Overdraft Not Allowed"
+            ELSE
+                balance -= amount
+
+
+Q2: Vehicle rental system.
+
+INTERFACE Rentable
+    METHOD rent()
+    METHOD return()
+
+ABSTRACT CLASS Vehicle IMPLEMENTS Rentable
+    PROPERTIES
+        vehicleId
+        brand
+        isAvailable
+
+    METHODS
+        rent()
+            isAvailable = FALSE
+
+        return()
+            isAvailable = TRUE
+
+CLASS Car EXTENDS Vehicle
+    // Car-specific details
+
+CLASS Bike EXTENDS Vehicle
+    // Bike-specific details
+
+CLASS VehicleFactory
+    METHOD createVehicle(type)
+        IF type == "Car"
+            RETURN new Car()
+        ELSE IF type == "Bike"
+            RETURN new Bike()
+
+
+Q3: Flight price Analyzer:
+
+CLASS CityZone
+    PROPERTIES
+        zoneId
+        crimeRate
+        neighbors (List<CityZone>)
+
+METHOD findHighRiskZones(graph)
+    INIT visited set
+    INIT result list
+
+    FOR each zone IN graph
+        IF zone NOT IN visited AND zone.crimeRate > threshold
+            DFS(zone, visited, result)
+
+METHOD DFS(zone, visited, result)
+    MARK zone AS visited
+    ADD zone TO result
+    FOR each neighbor IN zone.neighbors
+        IF neighbor NOT IN visited AND neighbor.crimeRate > threshold
+            DFS(neighbor, visited, result)
+			
+Q4: College Course Registration
+
+CLASS Course
+    PROPERTIES
+        courseId
+        courseName
+
+CLASS Student
+    PROPERTIES
+        studentId
+        name
+
+CLASS CourseRegistration
+    PROPERTIES
+        map<Course, List<Student>> registrations
+
+    METHODS
+        registerStudent(course, student)
+            IF course NOT IN registrations
+                registrations[course] = new List
+            registrations[course].add(student)
+
+        displayStudentsPerCourse()
+            FOR each course IN registrations
+                PRINT course.courseName
+                FOR each student IN registrations[course]
+                    PRINT student.name
+
