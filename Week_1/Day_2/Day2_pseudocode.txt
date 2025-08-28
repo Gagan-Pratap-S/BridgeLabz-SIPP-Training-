@@ -1,0 +1,65 @@
+Question -> 1. enum TrafficLight {
+    RED, GREEN, YELLOW
+}
+
+class SignalController {
+    TrafficLight current = RED;
+
+    void switchLight() {
+        if (current == RED) current = GREEN;
+        else if (current == GREEN) current = YELLOW;
+        else current = RED;
+    }
+
+    void showLight() {
+        print("Current Light: " + current);
+    }
+}
+
+
+SignalController signal = new SignalController();
+signal.showLight();  
+signal.switchLight(); 
+signal.showLight();
+
+
+Question -> 2.
+class Job {
+    String name;
+    int deadline;
+    int duration;
+}
+
+PriorityQueue<Job> jobQueue = new PriorityQueue(
+    (a, b) -> a.deadline - b.deadline 
+
+jobQueue.add(new Job("Job1", 5, 2));
+jobQueue.add(new Job("Job2", 3, 1));
+jobQueue.add(new Job("Job3", 7, 4));
+
+while (!jobQueue.isEmpty()) {
+    Job j = jobQueue.poll();
+    print("Processing: " + j.name);
+}
+
+
+
+
+Question -> 3.
+class Doctor {
+    String name;
+    String specialization;
+}
+
+Map<String, List<Doctor>> departmentMap = new HashMap();
+
+
+departmentMap.put("Cardiology", List.of(new Doctor("Dr. A", "Heart")));
+departmentMap.put("Neurology", List.of(new Doctor("Dr. B", "Brain")));
+departmentMap.put("Orthopedics", List.of(new Doctor("Dr. C", "Bones")));
+departmentMap.values()
+    .stream()
+    .flatMap(list -> list.stream())
+    .filter(doc -> doc.specialization.equals("Heart"))
+    .forEach(doc -> print(doc.name));
+
