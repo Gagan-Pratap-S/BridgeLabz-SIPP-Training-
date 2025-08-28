@@ -1,0 +1,64 @@
+1.   class Pet {
+    String name;
+    int age;
+    Pet(String name, int age) { ... }
+}
+
+class Dog extends Pet {
+    String breed;
+    Dog(String name, int age, String breed) { ... }
+}
+
+class Cat extends Pet {
+    boolean isIndoor;
+    Cat(String name, int age, boolean isIndoor) { ... }
+}
+
+class Bird extends Pet {
+    String color;
+    Bird(String name, int age, String color) { ... }
+}
+
+
+Dog d = new Dog("Buddy", 3, "Labrador");
+Cat c = new Cat("Whiskers", 2, true);
+Bird b = new Bird("Tweety", 1, "Yellow");
+
+
+
+
+Question -> 2. 
+
+Stack<String> undoStack = new Stack();
+String currentText = "";
+
+function type(text) {
+    undoStack.push(currentText);
+    currentText += text;
+}
+
+function undo() {
+    if (!undoStack.isEmpty()) {
+        currentText = undoStack.pop();
+    }
+}
+
+function showText() {
+    print(currentText);
+}
+ 
+
+Question -> 3.
+
+HashMap<String, Integer> scores = new HashMap();
+scores.put("Amit", 85);
+scores.put("Priya", 92);
+scores.put("Rahul", 78);
+
+String topStudent = scores.entrySet()
+    .stream()
+    .max((a, b) -> a.getValue() - b.getValue())
+    .get()
+    .getKey();
+
+print("Top scorer: " + topStudent);
