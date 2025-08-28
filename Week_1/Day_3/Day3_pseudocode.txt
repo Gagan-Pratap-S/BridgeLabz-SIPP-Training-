@@ -1,0 +1,65 @@
+Question -> 1.
+class Customer {
+    String name;
+    String address;
+}
+
+class Restaurant {
+    String name;
+    String location;
+}
+class DeliveryBoy {
+    String name;
+    String phone;
+}
+class Order {
+    Customer customer;
+    Restaurant restaurant;
+    DeliveryBoy deliveryBoy;
+    Order(Customer c, Restaurant r, DeliveryBoy d) {
+        customer = c;
+        restaurant = r;
+        deliveryBoy = d;
+    }
+    void showOrderDetails() {
+        print("Customer: " + customer.name);
+        print("Restaurant: " + restaurant.name);
+        print("Delivery By: " + deliveryBoy.name);
+    }
+}
+Order order = new Order(new Customer("Ravi", "Delhi"),
+                        new Restaurant("SpiceHub", "Connaught Place"),
+                        new DeliveryBoy("Amit", "9876543210"));
+order.showOrderDetails();
+
+
+Question -> 2.
+class Patient {
+    String name;
+    int age;
+    String disease;
+}
+HashMap<String, Patient> records = new HashMap();
+records.put("P101", new Patient("Ravi", 45, "Diabetes"));
+records.put("P102", new Patient("Priya", 30, "Flu"));
+Patient p = records.get("P101");
+print(p.name);
+records.put("P101", new Patient("Ravi", 45, "Recovered"));
+records.remove("P102");
+
+
+Question -> 3.
+class Book {
+    String title;
+    int year;
+    double rating;
+}
+
+List<Book> books = List.of(
+    new Book("Book A", 2016, 4.6),
+    new Book("Book B", 2014, 4.8),
+    new Book("Book C", 2018, 4.9)
+List<Book> filtered = books.stream()
+    .filter(b -> b.year > 2015 && b.rating > 4.5)
+    .collect(Collectors.toList());
+filtered.forEach(b -> print(b.title));
